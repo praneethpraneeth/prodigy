@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Navigation Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      position: fixed;
+      width: 100%;
+      background: transparent;
+      transition: background 0.3s, color 0.3s;
+      padding: 20px;
+      z-index: 999;
+    }
+
+    .navbar.scrolled {
+      background: #333;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar li {
+      margin: 0 15px;
+    }
+
+    .navbar a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .navbar.scrolled a {
+      color: #fff;
+    }
+
+    .navbar a:hover {
+      color: #f39c12;
+    }
+
+    main {
+      padding-top: 120px;
+    }
+
+    section {
+      height: 2000px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    h1 {
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h1>Scroll down to see the nav change color</h1>
+    </section>
+  </main>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
